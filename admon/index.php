@@ -33,7 +33,7 @@
 		<form action="" method="post">
 			
 			<input type="text" placeholder="Usuario" name="user" class="form-control" style="width: 200px;" /> <br>
-			<input type="password" placeholder="Password" name="password" class="form-control" style="width: 200px;" /> <br>
+			<input type="password" placeholder="Password" name="pass" class="form-control" style="width: 200px;" /> <br>
 			<input type="submit" class="btn btn-info pull-right m-3" value="Iniciar sesion">
 
 		</form>
