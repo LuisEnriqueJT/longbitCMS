@@ -32,12 +32,40 @@
 
 			return $query->fetch();
 		}
+
+		public function subirPublicacion($id, $parrafo1, $parrafo2, $parrafo3){
+			global $conexion;
+
+			$id = $conexion->prepare("
+				SELECT id
+				FROM usuarios
+				WHERE id = :user
+			");
+
+			$id->execute([
+				'user' => $admin
+			]);
+
+			$id = $id->fetch();
+
+	//***************************************
+			$query = $conexion->prepare("
+				INSERT INTO succesfulprojects (id, parrafo1, parrafo2, parrafo3)
+				VALUES(:id,:parrafo1,:parrafo2,:parrafo3)
+			");
+
+			$query->execute([
+				'id' => $id,
+				'parrafo1' => $parrafo1,
+				'parrafo2' => $parrafo2,
+				'parrafo3' => $parrafo3
+			]);
+
+			if($query){
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}
 ?>
-<!--
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus est, in omnis non, doloribus iure alias error. Vitae nostrum deserunt quos debitis magni porro iure, in sed accusamus. A assumenda aliquam alias ipsam possimus natus perspiciatis totam corporis temporibus quidem!
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis veniam, molestias quisquam debitis. Fugiat asperiores veritatis eius, aut. Veritatis modi voluptatibus iste. Ut, cumque. Unde pariatur deserunt ea impedit sequi, sint, iste magnam officia dignissimos, quasi ex mollitia dolorum ducimus nulla doloremque. Molestias soluta et culpa perferendis minus similique suscipit.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque est facere quae tenetur aut natus fugiat repellendus impedit eaque sed ut sint, vel aperiam quidem animi rerum quis eius sequi!
--->
