@@ -4,9 +4,13 @@
 }
 
 body{
-	background-color: #96cbb3;
+	background-color: #000000;
 }
 
-.cajasTexto{
-	width: 200px;
+.areasTexto{
+	width: 150px;
+}
+
+.idTexto{
+	width: 100px;
 }
