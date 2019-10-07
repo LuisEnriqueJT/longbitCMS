@@ -7,7 +7,10 @@
 		
 		$checar = $obj->logIn($_POST['user'],$_POST['pass']);
 
-		echo print_r($checar);
+		if($checar){
+			$_SESSION['admin'] = $checar['user'];
+			header("location: publicacion.php");
+		}
 
 	}
 ?>
@@ -21,14 +24,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 <body>
-	<!--<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row encabezado">
 			<h1 class="text-white m-4">Longbit Dashborad </h1>
 		</div>
 	</div>
--->
+
 	<div class="container">
-		<h2 class="m-3">Admin Panel</h2>
+		<h2 class="m-3 text-white">Admin Panel</h2>
 
 		<form action="" method="post">
 			
@@ -39,8 +42,5 @@
 		</form>
 	</div>
 
-	<div class="container">
-		
-	</div>
 </body>
 </html>
